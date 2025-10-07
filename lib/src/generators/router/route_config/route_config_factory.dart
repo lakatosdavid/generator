@@ -38,7 +38,7 @@ class RouteConfigFactory {
 
   RouteConfig fromResolver(ConstantReader stackedRoute) {
     if (stackedRoute
-        .instanceOf(const TypeChecker.fromRuntime(CupertinoRoute))) {
+        .instanceOf(const TypeChecker.typeNamed(CupertinoRoute))) {
       return CupertinoRouteConfig(
         className: className,
         classImport: classImport,
@@ -54,7 +54,7 @@ class RouteConfigFactory {
         parentClassName: parentClassName,
       );
     } else if (stackedRoute
-        .instanceOf(const TypeChecker.fromRuntime(AdaptiveRoute))) {
+        .instanceOf(const TypeChecker.typeNamed(AdaptiveRoute))) {
       return AdaptiveRouteConfig(
         className: className,
         classImport: classImport,
@@ -70,7 +70,7 @@ class RouteConfigFactory {
         parentClassName: parentClassName,
       );
     } else if (stackedRoute
-        .instanceOf(const TypeChecker.fromRuntime(CustomRoute))) {
+        .instanceOf(const TypeChecker.typeNamed(CustomRoute))) {
       final function = stackedRoute
           .peek('transitionsBuilder')
           ?.objectValue
